@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soluciones de Problemas</title>
+    <style>
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        .section {
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input {
+            padding: 5px;
+            margin: 5px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Soluciones de Problemas Juan Esteban Santander Acero</h1>
+
+    <h2>1. Contador de Palabras unicas</h2>
+    <div class="section">
+        <input type="text" id="parrafoInput" placeholder="Ingrese un parrafo">
+        <button onclick="contarPalabrasUnicas()">Contar palabras unicas</button>
+        <p id="conteoPalabrasUnicas"></p>
+    </div>
+
+    <h2>2. Validacion de clave</h2>
+    <div class="section">
+        <input type="password" id="claveInput" placeholder="Ingrese una clave">
+        <button onclick="validarContrasena()">Validar clave</button>
+        <p id="resultadoValidacionContrasena"></p>
+    </div>
+
+    <h2>3. Anagramas</h2>
+    <div class="section">
+        <input type="text" id="palabra1" placeholder="Palabra 1">
+        <input type="text" id="palabra2" placeholder="Palabra 2">
+        <button onclick="verificarAnagramas()">Verificar anagramas</button>
+        <p id="resultadoAnagramas"></p>
+    </div>
+
+    <h2>4. Reemplazo de Caracteres</h2>
+    <div class="section">
+        <input type="text" id="textoEntrada" placeholder="Ingrese una cadena de texto">
+        <button onclick="reemplazarVocales()">Reemplazar vocales</button>
+        <p id="resultadoReemplazoVocales"></p>
+    </div>
+
+    <h2>5. Buscar en una Cadena</h2>
+    <div class="section">
+        <input type="text" id="cadena" placeholder="Ingrese una cadena de texto">
+        <input type="text" id="palabraClave" placeholder="Ingrese una palabra clave">
+        <button onclick="buscarEnCadena()">Buscar</button>
+        <p id="resultadoBusqueda"></p>
+    </div>
+
+    <h2>6. Contador de Palabras</h2>
+    <div class="section">
+        <input type="text" id="frase" placeholder="Ingrese una frase">
+        <button onclick="contarPalabras()">Contar Palabras</button>
+        <p id="resultadoConteoPalabras"></p>
+    </div>
+
+    <h2>7. Inversion de Cadena</h2>
+    <div class="section">
+        <input type="text" id="cadenaInversion" placeholder="Ingrese una cadena de texto">
+        <button onclick="invertirCadena()">Invertir Cadena</button>
+        <p id="resultadoInversionCadena"></p>
+    </div>
+
+    <h2>8. Cadenas y Arreglos</h2>
+    <div class="section">
+        <input type="text" id="entradaFruta" placeholder="Ingrese una fruta">
+        <button onclick="verificarFruta()">Verificar fruta</button>
+        <p id="resultadoVerificacionFruta"></p>
+    </div>
+
+    <h2>9. Mayusculas y Minusculas</h2>
+    <div class="section">
+        <input type="text" id="textoEntradaMayusculas" placeholder="Ingrese una cadena de texto">
+        <button onclick="cambiarMayusculasMinusculas()">Cambiar mayusculas/minusculas</button>
+        <p id="resultadoCambioMayusculasMinusculas"></p>
+    </div>
+
+    <h2>10. Longitud de Palabras</h2>
+    <div class="section">
+        <input type="text" id="entradaOracion" placeholder="Ingrese una oracion">
+        <button onclick="longitudPalabras()">Longitud de palabras</button>
+        <p id="resultadoLongitudPalabras"></p>
+    </div>
+
+    <h2>11. Duplicar Elementos en un Arreglo</h2>
+    <div class="section">
+        <p>Ingrese una lista de numeros separados por comas:</p>
+        <input type="text" id="numerosDuplicar" placeholder="Ejemplo: 1, 2, 3, 4">
+        <button onclick="duplicarNumeros()">Duplicar Numeros</button>
+        <p id="resultadoDuplicacionNumeros"></p>
+    </div>
+
+    <h2>12. Mayusculas a Minusculas y Viceversa</h2>
+    <div class="section">
+        <input type="text" id="palabrasEntrada" placeholder="Ingrese palabras separadas por comas">
+        <button onclick="alternarMayusculasMinusculas()">Cambiar mayusculas y minusculas</button>
+        <p id="resultadoAlternanciaMayusculasMinusculas"></p>
+    </div>
+
+    <script>
+         function contarPalabrasUnicas() {
+        const paragraph = document.getElementById('parrafoInput').value.toLowerCase();
+        const words = paragraph.split(' ');
+        const uniqueWords = [...new Set(words)];
+        document.getElementById('conteoPalabrasUnicas').textContent = `Palabras unicas: ${uniqueWords.length}`;
+    }
+
+    function validarContrasena() {
+        const password = document.getElementById('claveInput').value;
+        const hasUpperCase = /[A-Z]/.test(password);
+        const hasNumber = /\d/.test(password);
+        const hasNoSpace = !/\s/.test(password);
+
+        if (password.length >= 8 && hasUpperCase && hasNumber && hasNoSpace) {
+            document.getElementById('resultadoValidacionContrasena').textContent = 'Clave valida';
+        } else {
+            document.getElementById('resultadoValidacionContrasena').textContent = 'La clave no cumple con los requisitos';
+        }
+    }
+
+    function verificarAnagramas() {
+        const word1 = document.getElementById('palabra1').value.toLowerCase();
+        const word2 = document.getElementById('palabra2').value.toLowerCase();
+        const isAnagram = word1.split('').sort().join('') === word2.split('').sort().join('');
+
+        if (isAnagram) {
+            document.getElementById('resultadoAnagramas').textContent = 'Son anagramas';
+        } else {
+            document.getElementById('resultadoAnagramas').textContent = 'No son anagramas';
+        }
+    }
+
+    function reemplazarVocales() {
+        const text = document.getElementById('textoEntrada').value;
+        const replacedText = text.replace(/[aeiouAEIOU]/g, '*');
+        document.getElementById('resultadoReemplazoVocales').textContent = `Cadena modificada: ${replacedText}`;
+    }
+
+    function buscarEnCadena() {
+        const cadena = document.getElementById("cadena").value;
+        const palabraClave = document.getElementById("palabraClave").value;
+
+        if (cadena.includes(palabraClave)) {
+            document.getElementById("resultadoBusqueda").textContent = "La palabra clave aparece en la cadena.";
+        } else {
+            document.getElementById("resultadoBusqueda").textContent = "La palabra clave no aparece en la cadena.";
+        }
+    }
+
+    function contarPalabras() {
+        const frase = document.getElementById("frase").value;
+        const palabras = frase.split(" ");
+        const numeroDePalabras = palabras.length;
+        document.getElementById("resultadoConteoPalabras").textContent = `Numero de palabras: ${numeroDePalabras}`;
+    }
+
+    function invertirCadena() {
+        const cadena = document.getElementById("cadenaInversion").value;
+        const resultado = document.getElementById("resultadoInversionCadena");
+        
+        let cadenaInvertida = "";
+        for (let i = cadena.length - 1; i >= 0; i--) {
+            cadenaInvertida += cadena[i];
+        }
+
+        resultado.textContent = `Cadena invertida: ${cadenaInvertida}`;
+    }
+
+    const fruits = ['manzana', 'banana', 'pera', 'uva', 'mango'];
+
+    function verificarFruta() {
+        const fruitInput = document.getElementById('entradaFruta').value.toLowerCase();
+        const isFound = fruits.includes(fruitInput);
+
+        if (isFound) {
+            document.getElementById('resultadoVerificacionFruta').textContent = `La fruta "${fruitInput}" esta en el arreglo.`;
+        } else {
+            document.getElementById('resultadoVerificacionFruta').textContent = `La fruta "${fruitInput}" no esta en el arreglo.`;
+        }
+    }
+
+    function cambiarMayusculasMinusculas() {
+        const text = document.getElementById('textoEntradaMayusculas').value;
+        const uppercaseText = text.toUpperCase();
+        const lowercaseText = text.toLowerCase();
+        document.getElementById('resultadoCambioMayusculasMinusculas').textContent = `Mayusculas: ${uppercaseText}, Minusculas: ${lowercaseText}`;
+    }
+
+    function longitudPalabras() {
+        const text = document.getElementById('entradaOracion').value;
+        const words = text.split(/\s+/).filter(word => word.trim() !== '');
+        const wordLengths = words.map(word => `${word}: ${word.length}`);
+        document.getElementById('resultadoLongitudPalabras').textContent = `Longitud de palabras: ${wordLengths.join(', ')}`;
+    }
+
+    function duplicarNumeros() {
+        const numerosInput = document.getElementById("numerosDuplicar").value;
+        const numeros = numerosInput.split(',').map(Number); 
+        const duplicados = numeros.map(numero => numero * 2);
+        document.getElementById("resultadoDuplicacionNumeros").textContent = `Numeros duplicados: ${duplicados.join(', ')}`;
+    }
+
+    function alternarMayusculasMinusculas() {
+        const inputText = document.getElementById('palabrasEntrada').value;
+        const words = inputText.split(',').map(word => {
+            return word.split('').map(char => {
+                return (char === char.toUpperCase()) ? char.toLowerCase() : char.toUpperCase();
+            }).join('');
+        });
+        document.getElementById('resultadoAlternanciaMayusculasMinusculas').textContent = `Palabras modificadas: ${words.join(', ')}`;
+    }
+            
+        
+
+       
+
+    </script>
+</body>
+</html>
+
